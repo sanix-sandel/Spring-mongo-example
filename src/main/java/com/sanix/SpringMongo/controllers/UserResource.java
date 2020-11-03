@@ -1,8 +1,8 @@
 package com.sanix.SpringMongo.controllers;
 
 
-import com.sanix.SpringMongo.document.User;
-import com.sanix.SpringMongo.repository.UserRepository;
+import com.sanix.SpringMongo.models.Person;
+import com.sanix.SpringMongo.repository.PersonRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,14 +13,14 @@ import java.util.List;
 @RequestMapping("/rest/users")
 public class UserResource {
 
-    private UserRepository userRepository;
+    private PersonRepository personRepository;
 
-    public UserResource(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserResource(PersonRepository personRepository) {
+        this.personRepository = personRepository;
     }
 
     @GetMapping("/all")
-    public List<User> getAll(){
-        return userRepository.findAll();
+    public List<Person> getAll(){
+        return personRepository.findAll();
     }
 }
